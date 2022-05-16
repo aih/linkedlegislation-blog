@@ -34,8 +34,26 @@ jobs:
           actor: ''                  # Default is the GITHUB_ACTOR
           pre_build_commands: ''     # Installing additional dependencies (Arch Linux)
       
+      # Check out the blog branch
+      - uses: actions/checkout@v3
+        with:
+          ref: blog 
+
+      - name: Move files to blog directory 
+        run: mkdir blog; | 
+         mv [!blog]* blog/
+         mv [!blog]/* blog/
+
       # Add the files to an artifact
       - uses: actions/upload-artifact@v3
         with:
-          name: blog-build 
-          path: path/to/artifact/ 
+          name: blog-d 
+          path: ./blog 
+      
+      #- name: Deploy
+      #  uses: lbertenasco/s3-deploy@v1
+      #  with:
+      #      folder: blog
+      #      bucket: ${{ secrets.S3_BUCKET }}
+      #      dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+      #      invalidation: / *
