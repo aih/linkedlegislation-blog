@@ -11,8 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Move files to blog directory 
+        run: mkdir blog; | 
+         mv [!blog]* blog/
+         mv [!blog]/* blog/
+
       # Add the files to an artifact
       - uses: actions/upload-artifact@v3
         with:
           name: blog-build 
-          path: ./ 
+          path: ./blog 
