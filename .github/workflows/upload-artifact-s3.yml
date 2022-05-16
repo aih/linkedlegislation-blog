@@ -19,5 +19,5 @@ jobs:
       # Add the files to an artifact
       - uses: actions/upload-artifact@v3
         with:
-          name: blog-build 
+          name: blog-upload
           path: ./blog 
