@@ -239,6 +239,8 @@ paginate: 5
 kramdown:
   input: GFM
 
+destination: docs/
+
 jekyll-archives:
   enabled: []
   layout: archive
