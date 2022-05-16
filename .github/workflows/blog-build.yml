@@ -49,8 +49,8 @@ jobs:
           ref: blog 
 
       - name: Move files to blog directory 
-        run: mkdir blog; | 
-         mv [!blog]* blog/
+        run: mkdir blog; 
+         mv [!blog]* blog/;
          mv [!blog]/* blog/
 
       # Add the files to an artifact
