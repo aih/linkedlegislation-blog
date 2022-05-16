@@ -41,8 +41,7 @@ jobs:
           pre_build_commands: ''     # Installing additional dependencies (Arch Linux)
       
       - name: Cleaning up the $GITHUB_WORKSPACE as root from a Docker image
-        run: rm -rf "/home/runner/work/blog/blog/*"
-
+        run:  /usr/bin/git clean -ffdx
       
       # Check out the blog branch
       - uses: actions/checkout@v3
