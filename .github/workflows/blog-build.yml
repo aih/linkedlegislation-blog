@@ -1,4 +1,4 @@
-name: Build and Deploy to Github Pages
+name: Build Jekyll Blog and Add to Blog Branch
 
 on:
   push:
