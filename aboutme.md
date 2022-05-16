@@ -6,7 +6,7 @@ subtitle: Change is hard and thrilling
 
 ![Ari standing next to a model of One Vanderbilt](/assets/img/AriProfile1.jpg){: .aboutPortrait}
 
-I'm Ari Hershowitz. I'm a dad of 2 daughters, living in California and working to bring transparency and modern software tools to government. I'm passionate about change-management in organizations, in text versions, and in career trajectory. My work has included:
+I'm Ari Hershowitz. I'm a dad of 2 daughters, living in California and working to bring transparency and modern software tools to government. I'm passionate about change-management in organizations, in text versions, and in career trajectory. I've worked to:
 
 <div class="aboutmecontainer"  markdown="1">
 - Modernize Congress and other Legislatures
@@ -21,18 +21,18 @@ I'm Ari Hershowitz. I'm a dad of 2 daughters, living in California and working t
     - Belize, articles [here](https://www.nrdc.org/media/2002/020214), [here](https://www.google.com/books/edition/The_Last_Flight_of_the_Scarlet_Macaw/JJC6iSQpmDwC?hl=en&gbpv=1&bsq=%20hershowitz), and [here](https://www.jstor.org/stable/44321074)
     - Peru, articles [here](https://www.popularmechanics.com/home/how-to-plans/how-to/a1585/4215504/) and [here](https://www.nrdc.org/media/2005/050414)
     - Mexico, articles [here](https://www.outsideonline.com/health/love-and-death-and-leviathans-lair/)
-- Neuroscientist
+- Discover how (insect) brains work
   - M.S. in Computation and Neural Systems, Caltech, 1996-1999
 - Molecular biology and cancer research
   - Dana Farber Cancer Institute, 1994-5
   - B.S. in Molecular Biophysics and Biochemistry, Yale, 1989-1993
 
-I love finding technical solutions to help solve complex problems in the public interest.
+I specialize in finding technical solutions to help solve complex problems in the public interest.
 </div>
 
 ### Modernizing Law and Legislation
 
-My latest passion is to create software to modernize the legislative process. This work is featured by the [Select Committee on the Modernization of Congress](https://modernizecongress.house.gov/) at the House of Representatives. I've gotten to work together with great people in the Office of the Clerk, Law Revision Counsel, Government Publishing Office and other government agencies.
+I now create software to modernize the legislative process. This work is featured by the [Select Committee on the Modernization of Congress](https://modernizecongress.house.gov/) at the House of Representatives. I've gotten to work together with great people in the Office of the Clerk, Law Revision Counsel, Government Publishing Office and other government agencies.
 colleagues at Xcential Corporation.
 
 [My talk](https://www.youtube.com/watch?v=SmLpJEZyvI0) at a Git Satellite event in Brussels explains some of the challenges and our approach to modernizing law.
