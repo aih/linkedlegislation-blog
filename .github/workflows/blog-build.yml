@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  github-pages:
+  jenkins-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -33,3 +33,9 @@ jobs:
           cname: ''                  # Default is to not use a cname
           actor: ''                  # Default is the GITHUB_ACTOR
           pre_build_commands: ''     # Installing additional dependencies (Arch Linux)
+      
+      # Add the files to an artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: blog-build 
+          path: path/to/artifact/ 

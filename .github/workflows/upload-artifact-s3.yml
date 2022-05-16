@@ -1,0 +1,18 @@
+name: Create artifact from blog branch and upload to s3
+
+on:
+  push:
+      branches:
+        - blog 
+
+jobs:
+  upload-artifact-s3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Add the files to an artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: blog-build 
+          path: ./ 
