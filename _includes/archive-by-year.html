@@ -1,5 +1,5 @@
 {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-<nav class="menu browse by_year text-center" aria-label="year">
+<nav class="menu browse by-year text-center" aria-label="year">
   <strong aria-hidden="true">Jump to:</strong>
   {% for year in postsByYear %}
   <a href="#{{ year.name }}"><span class="visually-hidden">jump to posts from</span>{{ year.name }}</a>
