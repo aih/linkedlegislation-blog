@@ -18,9 +18,9 @@ remote_theme: https://github.com/daattali/beautiful-jekyll
 #theme: beautiful-jekyll-theme
 
 # --- Github pages options --- #
-# domain: aih.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-# url: https://aih.github.io  # the base hostname and protocol for your site, e.g. http://example.com
-#baseurl: ""     # place folder name if the site is served in a subfolder
+domain: blog.linkedlegislation.com       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://blog.linkedlegislation.com  # the base hostname and protocol for your site, e.g. http://example.com
+baseurl: ""     # place folder name if the site is served in a subfolder
 
 #github: [metadata]
 
