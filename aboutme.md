@@ -6,7 +6,7 @@ subtitle: Change is hard and thrilling
 
 ![Ari standing next to a model of One Vanderbilt](/assets/img/AriProfile1.jpg){: .aboutPortrait}
 
-I'm Ari Hershowitz. I'm a dad of 2 daughters, living in California and working to bring transparency and modern software tools to government. I'm passionate about change-management in organizations, in text versions, and in career trajectory. I've worked to:
+I'm Ari Hershowitz. I'm a dad of 2 daughters, live in California and work to increase transparency and build modern software tools in the public interest. I'm passionate about change-management in organizations, in text versions, and in career trajectory. I've worked to:
 
 <div class="aboutmecontainer"  markdown="1">
 - Modernize Congress and other Legislatures
@@ -32,7 +32,6 @@ I specialize in finding technical solutions to help solve complex problems in th
 
 ### Modernizing Law and Legislation
 
-I now create software to modernize the legislative process. This work is featured by the [Select Committee on the Modernization of Congress](https://modernizecongress.house.gov/) at the House of Representatives. I've gotten to work together with great people in the Office of the Clerk, Law Revision Counsel, Government Publishing Office and other government agencies.
-colleagues at Xcential Corporation.
+I now create software to modernize the legislative process. This work is featured by the [Select Committee on the Modernization of Congress](https://modernizecongress.house.gov/) at the House of Representatives. I've gotten to work together with great people in the Office of the Clerk, Law Revision Counsel, Government Publishing Office and other government agencies, as well as my colleagues at Xcential Corporation.
 
 [My talk](https://www.youtube.com/watch?v=SmLpJEZyvI0) at a Git Satellite event in Brussels explains some of the challenges and our approach to modernizing law.
