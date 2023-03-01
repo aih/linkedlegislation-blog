@@ -4,10 +4,9 @@ title: Legislative Modernization
 subtitle: Where we are today
 author: Ari Hershowitz
 author_avatar: /assets/img/authors/ari.png
-tags: [Ari Hershowitz, Congress, modernization, Current Laws Database, U.S. Code, Statute Compilations, XCiteDB]
-date: '2023-03-01T16:00:00.000-00:00'
+tags: [Congress, House Modernization Committee, modernization, Current Laws Database, U.S. Code, Statute Compilations, XCiteDB]
+date: '2023-03-01T19:00:00.000-00:00'
 ---
-# Legislative Modernization: Where we are today
 
 I’ve done a lot of thinking about the original sources of U.S. federal law. And I’m fortunate to work with the people who draft, amend, organize, and analyze the law. Much of the law has been published in fragments distributed across paper volumes and across various federal websites. Today I believe we are just a few steps from joining those fragments into an offial, online, citeable public framework of law.
 
