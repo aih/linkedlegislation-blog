@@ -32,7 +32,7 @@ jobs:
           - id: make-script-executable 
             run: chmod +x "${GITHUB_WORKSPACE}/.github/workflows/blog-publish.sh" # make file runnable, might not be necessary
           - id: blog-publish 
-            run: "${GITHUB_WORKSPACE}/.github/workflows/blog-publish.sh './docs' ${{ secrets.AWS_BUCKET }} 'blog' '/blog/*' false"
+            run: "${GITHUB_WORKSPACE}/.github/workflows/blog-publish.sh './blog' ${{ secrets.AWS_BUCKET }} 'blog' '/blog/*' false"
 
       # Use GitHub Deploy Action to build and deploy to Github
       # - uses: jeffreytse/jekyll-deploy-action@v0.3.1
