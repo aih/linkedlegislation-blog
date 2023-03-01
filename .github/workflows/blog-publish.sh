@@ -27,10 +27,10 @@ if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
   err=1
 fi
 
-if [ -z "$aws_region" ]; then
-  echo "Specify an AWS region"
-  err=1
-fi
+#if [ -z "$aws_region" ]; then
+#  echo "Specify an AWS region"
+#  err=1
+#fi
 
 if [ -z "$bucket_name" ]; then
   echo "Specify a bucket you will like to deploy to"
