@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+env:
+  JEKYLL_ENV: production
 jobs:
   jenkins-build:
     runs-on: ubuntu-latest
@@ -14,43 +16,51 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    steps:
-      - uses: actions/checkout@v3
+      DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
-      # Use GitHub Actions' cache to cache dependencies on servers
-      - uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+    steps:
+        -  uses: actions/checkout@v3
+
+        # Use GitHub Actions' cache to cache dependencies on servers
+        - uses: actions/cache@v2
+          with:
+              path: vendor/bundle
+              key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+              restore-keys: |
+                ${{ runner.os }}-gems-
+        - uses: jerryjvl/jekyll-build-action@v1
+
+        - id: make-script-executable 
+          run: chmod +x "${GITHUB_WORKSPACE}/.github/workflows/blog-publish.sh" # make file runnable, might not be necessary
+        - id: blog-publish 
+          run: "${GITHUB_WORKSPACE}/.github/workflows/publish-blog.sh './docs' ${{ secrets.AWS_BUCKET }} 'blog' '/blog/*' false"
 
       # Use GitHub Deploy Action to build and deploy to Github
-      - uses: jeffreytse/jekyll-deploy-action@v0.3.1
-        with:
-          provider: 'github'
-          token: ${{ secrets.GITHUB_TOKEN }} # It's your Personal Access Token(PAT)
-          repository: ''             # Default is current repository
-          branch: 'blog'         # Default is gh-pages for github provider
-          jekyll_src: './'           # Default is root directory
-          jekyll_cfg: '_config.yml'  # Default is _config.yml
-          jekyll_baseurl: ''         # Default is according to _config.yml
-          bundler_ver: '>=0'         # Default is latest bundler version
-          cname: ''                  # Default is to not use a cname
-          actor: ''                  # Default is the GITHUB_ACTOR
-          pre_build_commands: ''     # Installing additional dependencies (Arch Linux)
+      # - uses: jeffreytse/jekyll-deploy-action@v0.3.1
+      #   with:
+      #     provider: 'github'
+      #     token: ${{ secrets.GITHUB_TOKEN }} # It's your Personal Access Token(PAT)
+      #     repository: ''             # Default is current repository
+      #     branch: 'blog'         # Default is gh-pages for github provider
+      #     jekyll_src: './'           # Default is root directory
+      #     jekyll_cfg: '_config.yml'  # Default is _config.yml
+      #     jekyll_baseurl: ''         # Default is according to _config.yml
+      #     bundler_ver: '>=0'         # Default is latest bundler version
+      #     cname: ''                  # Default is to not use a cname
+      #     actor: ''                  # Default is the GITHUB_ACTOR
+      #     pre_build_commands: ''     # Installing additional dependencies (Arch Linux)
       
-      - name: Cleaning up the $GITHUB_WORKSPACE as root from a Docker image
-        run:  sudo /usr/bin/git clean -ffdx
+      # - name: Cleaning up the $GITHUB_WORKSPACE as root from a Docker image
+      #   run:  sudo /usr/bin/git clean -ffdx
       
-      # Check out the blog branch
-      - uses: actions/checkout@v3
-        with:
-          ref: blog 
+      # # Check out the blog branch
+      # - uses: actions/checkout@v3
+      #   with:
+      #     ref: blog 
 
-      - name: Move files to blog directory 
-        run: mkdir blog; 
-         mv [!blog]* blog/;
+      # - name: Move files to blog directory 
+      #   run: mkdir blog; 
+      #    mv [!blog]* blog/;
 
       # Add the files to an artifact
       - uses: actions/upload-artifact@v3
