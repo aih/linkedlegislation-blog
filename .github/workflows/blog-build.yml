@@ -7,7 +7,7 @@ on:
 env:
   JEKYLL_ENV: production
 jobs:
-    build:
+    jenkins-build:
       runs-on: ubuntu-latest
       concurrency:
         group: ${{ github.workflow }}-${{ github.ref }}
@@ -62,10 +62,10 @@ jobs:
       #    mv [!blog]* blog/;
 
       # Add the files to an artifact
-      - uses: actions/upload-artifact@v3
-        with:
-          name: upload-blog-artifact 
-          path: ./blog 
+      #- uses: actions/upload-artifact@v3
+      #  with:
+      #    name: upload-blog-artifact 
+      #    path: ./blog 
       
       #- name: Deploy to s3
       #  uses: lbertenasco/s3-deploy@v1
