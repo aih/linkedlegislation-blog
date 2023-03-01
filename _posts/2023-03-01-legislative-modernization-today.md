@@ -1,5 +1,14 @@
 ---
-published: true
+layout: post
+title: Legislative Modernization
+subtitle: Where we are today
+author: Ari Hershowitz
+author_avatar: /assets/img/authors/ari.png
+cover-img: /assets/img/posts/path.jpg
+share-img: /assets/img/posts/path.jpg
+tags: [Ari Hershowitz, Congress, modernization, Current Laws Database, U.S. Code, Statute Compilations, XCiteDB]
+date: '2021-10-25T14:19:00.004-07:00'
+thumbnail: https://lh3.googleusercontent.com/-gc_f08z2W8k/YXcGv9s9PfI/AAAAAAAES80/L6E9_Wy3woMKLDc3YYlpkXuwvwCzXEnLwCNcBGAsYHQ/s72-w366-c-h431/image.png
 ---
 # Legislative Modernization: Where we are today
 
