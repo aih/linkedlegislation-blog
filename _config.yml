@@ -239,7 +239,7 @@ paginate: 5
 kramdown:
   input: GFM
 
-destination: docs/
+destination: blog/
 
 jekyll-archives:
   enabled: []
