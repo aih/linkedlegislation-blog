@@ -16,4 +16,5 @@ As a [Jekyll site](https://jekyllrb.com/docs/usage/), this blog can be run local
 
 ## Development and automatic build with GH Actions
 
-This blog is automatically built and deployed to GitHub Pages using GitHub Actions. The workflow is defined in `.github/workflows/jekyll.yml`. The workflow is triggered on any push to the `main` branch. It builds the site and deploys it to the `blog` branch (which is the equivalent of `gh-pages` for this site). The site is then available at `https://aih.github.io/blog` and `blog.linkedlegislation.com`.
+This blog is automatically built and deployed to AWS CloudFront using GitHub Actions. The workflow is defined in `.github/workflows/blog-build-and-publish.yml` which in turn calls `.github/workflows/blog-publish.sh`.
+The workflow is triggered on any push to the `main` branch. It builds the site, uploads files to s3 and then invalidates the CloudFront deployment.
