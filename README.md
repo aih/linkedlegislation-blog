@@ -12,6 +12,7 @@ As a [Jekyll site](https://jekyllrb.com/docs/usage/), this blog can be run local
 2. Install Jekyll and Bundler: `gem install jekyll bundler`
 3. Within this directory, run `bundle install` to install dependencies.
 4. Build and serve the site: `bundle exec jekyll serve`
+   To view drafts, serve with `bundle exec jekyll serve --drafts`
 5. Browse on `http://localhost:4000`
 
 ## Development and automatic build with GH Actions
