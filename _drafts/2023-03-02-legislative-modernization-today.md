@@ -22,6 +22,8 @@ Some of what I discuss here can be found in various earlier forms on this blog. 
 
 An essential component of laws is the ability to cite a portion of law with some precision. Legislative citations typically cite a level in a hierarchical structure (Section 401(c) of Title 26 of the United States Code or 26 U.S.C.401(c)). Digital citations refer to a URL. Modernization of law begins with creating a one-to-one relationship between the structure of a traditional citation and a URL: 26 U.S.C. 401(c) becomes `/us/usc/t26/s401/c`. (We can quibble in the comments about the differences between a URL and URI.)
 
+In my view, the digital citation is the most important reason to translate legislative documents from paper into a digital format. The digital citation is embedded in the document itself as an 'identifier' in USLM, the official XML format for federal legislative and regulatory documents. It can also be used as a reference (or hyperlink) from another document. This makes a natural transition from the paper world of citations and references to the digital world of hyperlinks. In the Comparative Print project for the United States House, it allows us to automatically execute an amendment: amendments typically consist of a citation (where the change will be made), an action (e.g. a strike or insertion), and content (what is stricken or inserted). With a digital citation, we can retrieve the content to be amended from the database, make the change and set the changed provision as a new version -- or 'branch' -- of the document. There are lengthy and sometimes contentious discussions about how to structure law in digital form, and my guiding principal is the natural language citations that have been refined over centuries: if the citation exists in natural language (generally), we should be able to reference it digitally.
+
 Each of the three sources of federal law I describe below (bills, U.S. Code, Statute Compilations) is now published as downloadable files in United States Legislative Markup (USLM), a standardized XML format that includes digital citations for each portion of the text, or provision.
 
 ### Version Control
@@ -80,3 +82,5 @@ For a post about digital citations, I intentionally left all of the references t
 [Statutes at Large](https://www.govinfo.gov/app/collection/statute): the official site for the Statutes at Large published by the Government Publishing Office
 
 [Statute Compilations](https://www.govinfo.gov/app/collection/comps): Statute Compilations in a number of formats, including USLM, published by the Government Publishing Office
+
+[USLM](https://github.com/usgpo/uslm): the USLM XML data standard for federal legislative and regulatory documents; GitHub repository maintained by the Government Publishing Office, all available under the CC0 (no license) [license](https://github.com/usgpo/uslm/blob/master/LICENSE.md)
