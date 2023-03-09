@@ -12,7 +12,7 @@ I’ve done a lot of thinking about the original sources of U.S. federal law. An
 
 Today I believe we are just a few steps from joining those fragments into an official, online, citeable -- and updated -- public framework of law.
 
-This post will summarize the progress that has been made in modernizing the digital publication of law. Completing this effort requires solving three key problems of digitization (citations, version control and cloud deployment) and connecting three key sources of federal law (bills, U.S. Code, Statute Compilations). I plan to write separate posts to further explore of each of those areas. The topic of regulations deserves its own treatment.
+This post will summarize the progress that has been made in modernizing the digital publication of law. Completing this effort requires solving three key problems of digitization (citations, version control and cloud deployment) and connecting three key sources of federal law (bills, U.S. Code, Statute Compilations). I plan to write separate posts to further explore each of those areas. The topic of regulations deserves its own treatment.
 
 The nature of our federal system is that different organizations are responsible for each of the sources of federal law: bills, statutes and the United States Code are each managed by independent entities. So, much of the progress I will describe is due to the collaboration between some very dedicated people _across_ many government organizations.
 
