@@ -10,7 +10,7 @@ date: '2023-03-09T12:00:00.000-00:00'
 
 I’ve done a lot of thinking about the original sources of U.S. federal law. And I’m fortunate to work with the people who draft, amend, organize, and analyze the law. Much of the law is published in fragments distributed across paper volumes and across various federal websites. Publication of the law is also distributed in time: publications that were up-to-date a year ago are still online, but not updated in-place. Depending on which federal website you look for the law, you may find a snapshot (often outdated) of the fragment of law that is maintained there.
 
-Today I believe we are just a few steps from joining those fragments into an offical, online, citeable -- and updated -- public framework of law.
+Today I believe we are just a few steps from joining those fragments into an official, online, citeable -- and updated -- public framework of law.
 
 This post will summarize the progress that has been made in modernizing the digital publication of law. Completing this effort requires solving three key problems of digitization (citations, version control and cloud deployment) and connecting three key sources of federal law (bills, U.S. Code, Statute Compilations). I plan to write separate posts to further explore of each of those areas. The topic of regulations deserves its own treatment.
 
