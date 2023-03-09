@@ -4,7 +4,7 @@ title: Legislative Modernization
 subtitle: Where we are today
 author: Ari Hershowitz
 author_avatar: /assets/img/authors/ari.png
-tags: [Ari Hershowitz, Congress, modernization, Current Laws Database, U.S. Code, Statute Compilations, XCiteDB]
+tags: [Congress, modernization, Current Laws Database, U.S. Code, Statute Compilations, XCiteDB, GPO, House Clerk, Library of Congress, USLM]
 date: '2023-03-09T12:00:00.000-00:00'
 ---
 
