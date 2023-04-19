@@ -10,7 +10,7 @@ I'm Ari Hershowitz. I aim to bring transparency and modern software tools to gov
 <div class="aboutmecontainer"  markdown="1">
 - Modernize Congress and other Legislatures
   - Founder and CEO of [Govable.ai](https://govable.ai)
-  - Founder and CEO, [DreamProIT](https://dreamproit.com.ua/)/MriiaPro
+  - Founder and CEO, [DreamProIT](https://dreamproit.com)
     - US/Ukrainian software consulting, 2022-Present
   - Inventor, [Document comparison for legislative texts](https://uspto.report/patent/app/20190354636), 2018
   - Founder and CEO of Tabulaw
