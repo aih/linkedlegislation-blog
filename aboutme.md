@@ -5,13 +5,12 @@ subtitle: Change is hard and thrilling
 ---
 
 ![Ari standing next to a model of One Vanderbilt](/assets/img/AriProfile1.jpg){: .aboutPortrait}
-
-I'm Ari Hershowitz. I'm a dad of 2 daughters, live in California and work to increase transparency and build modern software tools in the public interest. I'm passionate about change-management in organizations, in text versions, and in career trajectory. I've worked to:
+I'm Ari Hershowitz. I aim bring transparency and modern software tools to government as founder and CEO of Govable.ai, and of DreamProIT, a US/Ukraine software consultancy. I’m passionate about change-management in organizations, in text documents, and in life. I have worked to:
 
 <div class="aboutmecontainer"  markdown="1">
 - Modernize Congress and other Legislatures
-  - [Director, Open Government at Xcential Corporation](https://xcential.com/about-us/), 2011-Present
-  - Founder, [DreamProIT](https://dreamproit.com.ua/)/MriiaPro
+  - Founder and CEO of [Govable.ai](https://govable.ai)
+  - Founder and CEO, [DreamProIT](https://dreamproit.com.ua/)/MriiaPro
     - US/Ukrainian software consulting, 2022-Present
   - Inventor, [Document comparison for legislative texts](https://uspto.report/patent/app/20190354636), 2018
   - Founder and CEO of Tabulaw
@@ -29,9 +28,5 @@ I'm Ari Hershowitz. I'm a dad of 2 daughters, live in California and work to inc
 
 I specialize in finding technical solutions to help solve complex problems in the public interest.
 </div>
-
-### Modernizing Law and Legislation
-
-I now create software to modernize the legislative process. This work is featured by the [Select Committee on the Modernization of Congress](https://modernizecongress.house.gov/) at the House of Representatives. I've gotten to work together with great people in the Office of the Clerk, Law Revision Counsel, Government Publishing Office and other government agencies, as well as my colleagues at Xcential Corporation.
 
 [My talk](https://www.youtube.com/watch?v=SmLpJEZyvI0) at a Git Satellite event in Brussels explains some of the challenges and our approach to modernizing law.
