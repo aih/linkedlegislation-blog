@@ -19,3 +19,4 @@ As a [Jekyll site](https://jekyllrb.com/docs/usage/), this blog can be run local
 
 This blog is automatically built and deployed to AWS CloudFront using GitHub Actions. The workflow is defined in `.github/workflows/blog-build-and-publish.yml` which in turn calls `.github/workflows/blog-publish.sh`.
 The workflow is triggered on any push to the `main` branch. It builds the site, uploads files to s3 and then invalidates the CloudFront deployment.
+Updating Jan 13, 2026
