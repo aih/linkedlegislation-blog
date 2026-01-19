@@ -5,11 +5,10 @@ subtitle: Change is hard and thrilling
 ---
 
 ![Ari standing next to a model of One Vanderbilt](/assets/img/AriProfile1.jpg){: .aboutPortrait}
-I'm Ari Hershowitz. I aim to bring transparency and modern software tools to government as founder and CEO of Govable.ai, and of DreamProIT, a US/Ukraine software consultancy. I’m passionate about change-management in organizations, in text documents, and in life. I have worked to:
+I'm Ari Hershowitz. I am currently Director of Engineering for the Federal Civilian practice at Ad Hoc, LLC. I aim to bring transparency and modern software tools to government at Ad Hoc, and as founder and CEO of DreamProIT, a US/Ukraine software consultancy. I’m passionate about change-management in organizations, in text documents, and in life. I have worked to:
 
 <div class="aboutmecontainer"  markdown="1">
 - Modernize Congress and other Legislatures
-  - Founder and CEO of [Govable.ai](https://govable.ai)
   - Founder and CEO, [DreamProIT](https://dreamproit.com)
     - US/Ukrainian software consulting, 2022-Present
   - Inventor, [Document comparison for legislative texts](https://uspto.report/patent/app/20190354636), 2018
