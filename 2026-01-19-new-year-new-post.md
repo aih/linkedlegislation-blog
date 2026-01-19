@@ -1,0 +1,5 @@
+## Reviving LinkedLegislation at linkedlegislation.org
+
+Every few years, I rediscover blogging. I originally wrote posts on tabulaw.com in 2008, for my (then) novel idea to digitize legal research and writing. That was in the early days of [Stanford's Codex](https://law.stanford.edu/codex-the-stanford-center-for-legal-informatics/) project, before Harvey, Casetext, and the million and one lawyer-engineers who have since trained and idealistically -- most often quixotically -- aimed to modernize legal work. Note to future innovators: The billable hour is dead (long live the billable hour).
+
+After Tabulaw failed (c.f. efficiency is a costly strategy, as long as there are still billable hours; also see "99% of all legal content is still not 100%"), I worked on transforming legislative and regulatory content into a form that is more machine readable. That work led to the Comparative Prints project at the U.S. House of Representatives, advances at the Office of Legislative Counsel (led by the visionary Wade Ballou
