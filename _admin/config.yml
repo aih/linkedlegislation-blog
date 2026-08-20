@@ -47,7 +47,7 @@ collections:
       - { name: thumbnail-img, label: Thumbnail image, widget: image, required: false }
       - { name: cover-img, label: Cover image, widget: image, required: false }
       - { name: share-img, label: Social share image, widget: image, required: false }
-      - { name: body, label: Body, widget: richtext, modes: [rich_text, raw] }
+      - { name: body, label: Body, widget: markdown, modes: [rich_text, raw] }
 
   - name: drafts
     label: Drafts
@@ -67,4 +67,4 @@ collections:
       - { name: tags, label: Tags, widget: list, required: false }
       - { name: thumbnail-img, label: Thumbnail image, widget: image, required: false }
       - { name: cover-img, label: Cover image, widget: image, required: false }
-      - { name: body, label: Body, widget: richtext, modes: [rich_text, raw] }
+      - { name: body, label: Body, widget: markdown, modes: [rich_text, raw] }
