@@ -2,9 +2,22 @@
 title: The Secret US Code Revealed
 subtitle: A Natural Web Reader for US Law
 author: Ari Hershowitz
-date: ''
+date: 2026-08-20T11:00:00-07:00
 tags:
-  - law, legislation, Law Revision Counsel, US Code, Congress, technology, LLMs, Claude, Claude Code, AI, legaltech, uscode.house.gov, LII, Cornell Legal Information Institute
+  - law
+  - legislation
+  - Law Revision Counsel
+  - US Code
+  - Congress
+  - technology
+  - LLMs
+  - Claude
+  - Claude Code
+  - AI
+  - legaltech
+  - uscode.house.gov
+  - LII
+  - Cornell Legal Information Institute
 thumbnail-img: /assets/img/uploads/Babylonian_tablet_of_Hammurabi.jpg
 cover-img: /assets/img/uploads/Hammurabi-USCode-LinkedLegislation.png
 ---

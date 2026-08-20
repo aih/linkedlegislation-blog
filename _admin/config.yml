@@ -1,14 +1,20 @@
-# Editor configuration, read by Sveltia CMS (and by Decap CMS, which uses the
-# same format). Reload the editor in the browser after changing this file.
+# Editor configuration, read by Decap CMS. Reload the editor in the browser
+# after changing this file.
 
 backend:
   name: github
-  repo: aih/blog
+  repo: aih/linkedlegislation-blog
   branch: main
 
-# Decap CMS only: routes writes through `npx decap-server` instead of the
-# GitHub API. Sveltia CMS writes to the working tree and ignores this key.
+# Routes reads and writes through `npx decap-server` on port 8081 instead of
+# the GitHub API, so the editor saves into this working copy. Decap uses the
+# proxy only when the page is served from localhost; anywhere else it falls
+# back to the `backend` above, which needs an OAuth client that this repo does
+# not configure.
 local_backend: true
+
+# Preview links point at the local Jekyll server.
+site_url: http://localhost:4000
 
 media_folder: assets/img/uploads
 public_folder: /assets/img/uploads
@@ -33,13 +39,15 @@ collections:
       - { name: title, label: Title, widget: string }
       - { name: subtitle, label: Subtitle, widget: string, required: false }
       - { name: author, label: Author, widget: string, default: Ari Hershowitz, required: false }
+      # Required so the field can never be saved blank. Jekyll aborts the build
+      # on `date: ''`, and Decap writes an empty string for a cleared field.
       - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ssZ', default: '{{now}}' }
-      - { name: last-updated, label: Last updated, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ssZ', required: false }
+      - { name: last-updated, label: Last updated, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ssZ', default: '', required: false }
       - { name: tags, label: Tags, widget: list, required: false }
       - { name: thumbnail-img, label: Thumbnail image, widget: image, required: false }
       - { name: cover-img, label: Cover image, widget: image, required: false }
       - { name: share-img, label: Social share image, widget: image, required: false }
-      - { name: body, label: Body, widget: markdown }
+      - { name: body, label: Body, widget: richtext, modes: [rich_text, raw] }
 
   - name: drafts
     label: Drafts
@@ -49,14 +57,14 @@ collections:
     extension: md
     format: yaml-frontmatter
     create: true
-    slug: '{{slug}}'
-    sortable_fields: [title]
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    sortable_fields: [date, title]
     fields:
       - { name: title, label: Title, widget: string }
       - { name: subtitle, label: Subtitle, widget: string, required: false }
       - { name: author, label: Author, widget: string, default: Ari Hershowitz, required: false }
-      - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ssZ', required: false }
+      - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ssZ', default: '{{now}}' }
       - { name: tags, label: Tags, widget: list, required: false }
       - { name: thumbnail-img, label: Thumbnail image, widget: image, required: false }
       - { name: cover-img, label: Cover image, widget: image, required: false }
-      - { name: body, label: Body, widget: markdown }
+      - { name: body, label: Body, widget: richtext, modes: [rich_text, raw] }
