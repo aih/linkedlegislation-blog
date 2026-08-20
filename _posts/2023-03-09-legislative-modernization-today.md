@@ -3,18 +3,29 @@ layout: post
 title: Legislative Modernization
 subtitle: Where we are today
 author: Ari Hershowitz
+date: 2023-03-09T12:00:00.000-00:00
+cover-img: /assets/img/uploads/hammurabi-uscode-linkedlegislation-montage-1-.png
 author_avatar: /assets/img/authors/ari.png
-tags: [Congress, modernization, Current Laws Database, U.S. Code, Statute Compilations, XCiteDB, GPO, House Clerk, Library of Congress, USLM]
-date: '2023-03-09T12:00:00.000-00:00'
+tags:
+  - Congress
+  - modernization
+  - Current Laws Database
+  - U.S. Code
+  - Statute Compilations
+  - XCiteDB
+  - GPO
+  - House Clerk
+  - Library of Congress
+  - USLM
+share-img: /assets/img/uploads/Babylonian_tablet_of_Hammurabi.jpg
 ---
-
 I’ve done a lot of thinking about the original sources of U.S. federal law. And I’m fortunate to work with the people who draft, amend, organize, and analyze the law. Much of the law is published in fragments distributed across paper volumes and across various federal websites. Publication of the law is also distributed in time: publications that were up-to-date a year ago are still online, but not updated in-place. Depending on which federal website you look for the law, you may find a snapshot (often outdated) of the fragment of law that is maintained there.
 
 Today I believe we are just a few steps from joining those fragments into an official, online, citeable -- and updated -- public framework of law.
 
 This post will summarize the progress that has been made in modernizing the digital publication of law. Completing this effort requires solving three key problems of digitization (citations, version control and cloud deployment) and connecting three key sources of federal law (bills, U.S. Code, Statute Compilations). I plan to write separate posts to further explore each of those areas. The topic of regulations deserves its own treatment.
 
-The nature of our federal system is that different organizations are responsible for each of the sources of federal law: bills, statutes and the United States Code are each managed by independent entities. So, much of the progress I will describe is due to the collaboration between some very dedicated people _across_ many government organizations.
+The nature of our federal system is that different organizations are responsible for each of the sources of federal law: bills, statutes and the United States Code are each managed by independent entities. So, much of the progress I will describe is due to the collaboration between some very dedicated people *across* many government organizations.
 
 Some of what I discuss here can be found in earlier forms on this blog. This post is an attempt to update the information and identify the remaining challenges.
 
@@ -75,7 +86,6 @@ For a post about digital citations, I intentionally left all of the references t
 [GovTrack.us](https://www.govtrack.us/): a site that tracks bills and votes in Congress, and one of the earliest sites to publish federal bills in a digital format
 
 [Cornell’s LII](https://www.law.cornell.edu/): another trailblaziing site that publishes federal bills and law in a digital format
-
 
 ### Official sites for the sources of federal law
 
