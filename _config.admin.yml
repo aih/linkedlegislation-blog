@@ -1,0 +1,8 @@
+# Local-only overlay that builds the editor UI into the site:
+#
+#   bundle exec jekyll serve --config _config.yml,_config.admin.yml --drafts
+#
+# The GitHub Actions build uses _config.yml alone, so _admin/ is never
+# deployed to blog.linkedlegislation.org.
+include:
+  - _admin
