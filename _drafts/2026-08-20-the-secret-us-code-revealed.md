@@ -2,7 +2,7 @@
 title: The Secret US Code Revealed
 subtitle: A Natural Web Reader for US Law
 author: Ari Hershowitz
-date: 2026-08-20T11:00:00-07:00
+date: 2026-08-20T12:10:00-07:00
 tags:
   - law
   - legislation
