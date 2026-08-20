@@ -45,3 +45,31 @@ a repository secret `BLOG_SYNC_TOKEN` — a fine-grained personal access token
 scoped to `aih/blog` with Contents: read and write. Without it, the daily
 schedule still keeps the mirror current.
 
+## Legacy link repair
+
+The blog has published under three domains: blog.tabulaw.com, then
+blog.linkedlegislation.com, now blog.linkedlegislation.org. Posts migrated from
+Blogger linked to each other through the old domains and old Blogger paths
+(`/YYYY/MM/slug.html`). Swapping the domain alone leaves the path broken, so
+those links 404 on whichever domain they name.
+
+`scripts/fix_self_links.py` repoints them at root-relative permalinks, which
+survive the next domain change. It maps each Blogger path to the post's current
+permalink, taking the date from the post's `date` front matter converted to
+`site.timezone` — a post filed late in the day at a western offset publishes on
+the following date, so the filename date is not always the permalink date.
+
+`scripts/fix_dead_uscode_links.py` repoints U.S. Code citations that pointed at
+the old Linked Legislation app to the same sections on uscode.house.gov.
+
+Both take `--check` to report without writing (exit 2 if anything needs a fix).
+
+Two categories are left alone on purpose:
+
+- `blogger_orig_url` front matter records where a post lived on Blogger.
+- Prose that names an old domain, such as the 2014 post announcing the name
+  change, describes the blog as it was at the time.
+
+Still unfixed: 15 links to Tabulaw application domains (`calaw.tabulaw.com`,
+`www.tabulaw.com`, `tabulaw.com/CALaw`, `pdf2html.tabulaw.com`,
+`rasa.tabulaw.com`). All fail DNS and have no equivalent destination.
