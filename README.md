@@ -47,8 +47,8 @@ changes, commits it and publishes. It fires on `repository_dispatch`
 Instant updates come from `.github/workflows/notify-blog.yml` in the
 `aih/aih.github.io` repo, which sends the dispatch on push. That workflow needs
 a repository secret `BLOG_SYNC_TOKEN` — a fine-grained personal access token
-scoped to `aih/blog` with Contents: read and write. Without it, the daily
-schedule still keeps the mirror current.
+scoped to `aih/linkedlegislation-blog` with Contents: read and write. Without
+it, the daily schedule still keeps the mirror current.
 
 ## Legacy link repair
 

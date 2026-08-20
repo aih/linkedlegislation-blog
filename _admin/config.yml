@@ -3,7 +3,7 @@
 
 backend:
   name: github
-  repo: aih/blog
+  repo: aih/linkedlegislation-blog
   branch: main
 
 # Routes reads and writes through `npx decap-server` on port 8081 instead of
