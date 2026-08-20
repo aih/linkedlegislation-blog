@@ -75,6 +75,9 @@ Two categories are left alone on purpose:
 - Prose that names an old domain, such as the 2014 post announcing the name
   change, describes the blog as it was at the time.
 
-Still unfixed: 15 links to Tabulaw application domains (`calaw.tabulaw.com`,
-`www.tabulaw.com`, `tabulaw.com/CALaw`, `pdf2html.tabulaw.com`,
-`rasa.tabulaw.com`). All fail DNS and have no equivalent destination.
+`scripts/archive_tabulaw_links.py` turns links to the retired Tabulaw sites
+(`calaw.tabulaw.com`, `www.tabulaw.com`, `tabulaw.com`, `pdf2html.tabulaw.com`,
+`rasa.tabulaw.com`) into plain text. They fail DNS and nothing replaced them, so
+each anchor is unwrapped to its own text followed by the host and a marker:
+`here [pdf2html.tabulaw.com - archived]`. Where the link text is already the
+host, the host is not repeated: `calaw.tabulaw.com [archived]`.
