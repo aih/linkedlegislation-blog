@@ -19,7 +19,7 @@ tags:
   - LII
   - Cornell Legal Information Institute
 thumbnail-img: /assets/img/uploads/Babylonian_tablet_of_Hammurabi.jpg
-cover-img: /assets/img/uploads/Hammurabi-USCode-LinkedLegislation.png
+cover-img: /assets/img/uploads/hammurabi-uscode-linkedlegislation-montage.png
 ---
 
 From the Code of Hammurabi to the United States Code, statutory law is naturally built for web display. And yet until today no web site has done true justice to the law.  Tl;dr, compare for yourself, the official site for the United States Code ([uscode.house.gov](uscode.house.gov)) and my new unofficial reconception and proof of concept at [uscode.linkedlegislation.org](uscode.linkedlegislation.org). The site is open source (MIT license) and it is my hope that the concept, if not the software code itself, will serve as inspiration for the next official version of the Law Revision Counsel's U.S. Code site.
