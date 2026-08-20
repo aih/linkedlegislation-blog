@@ -8,12 +8,17 @@ The blog is built using the [Beautiful Jekyll](https://beautifuljekyll.com/) the
 
 As a [Jekyll site](https://jekyllrb.com/docs/usage/), this blog can be run locally for development and testing. Follow [the instructions](https://jekyllrb.com/docs/) for installing requirements and serving locally. In brief:
 
-1. Install Ruby and Ruby gems (I found [this guide](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-ma) helpful on Mac).
-2. Install Jekyll and Bundler: `gem install jekyll bundler`
+1. Install Ruby 3.4, the version CI builds with (`brew install ruby@3.4` on
+   Mac, or see [this guide](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-ma)).
+2. Install Bundler: `gem install bundler`
 3. Within this directory, run `bundle install` to install dependencies.
 4. Build and serve the site: `bundle exec jekyll serve`
    To view drafts, serve with `bundle exec jekyll serve --drafts`
 5. Browse on `http://localhost:4000`
+
+The site builds with Jekyll 4 and is deployed to S3/CloudFront. It does not use
+the `github-pages` gem, which exists to pin gems to the versions GitHub Pages
+runs and is not relevant to this deployment.
 
 ## Development and automatic build with GH Actions
 

@@ -28,18 +28,20 @@ jobs:
         DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
       steps:
-          -  uses: actions/checkout@v3
-             with:
-               ref: ${{ inputs.ref }}
-
-          # Use GitHub Actions' cache to cache dependencies on servers
-          - uses: actions/cache@v4
+          - uses: actions/checkout@v5
             with:
-                path: vendor/bundle
-                key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-                restore-keys: |
-                  ${{ runner.os }}-gems-
-          - uses: jerryjvl/jekyll-build-action@v1
+              ref: ${{ inputs.ref }}
+
+          # Installs the gems in Gemfile.lock and caches them. Replaces
+          # jerryjvl/jekyll-build-action, whose image drifted to a Ruby and
+          # Jekyll that the lockfile could not satisfy.
+          - uses: ruby/setup-ruby@v1
+            with:
+              ruby-version: '3.4'
+              bundler-cache: true
+
+          - id: jekyll-build
+            run: bundle exec jekyll build --trace
 
           - id: make-script-executable 
             run: chmod +x "${GITHUB_WORKSPACE}/.github/workflows/blog-publish.sh" # make file runnable, might not be necessary
