@@ -23,6 +23,14 @@ The proxy listens on port 8081 and serves the repository it was started in. `POR
 decap-server` moves it; the matching editor setting is `local_backend: {url: ...}` in
 `_admin/config.yml`.
 
+`_admin/index.html` pins `decap-cms@3.8.0`. Releases from 3.8.4 up build malformed blob URLs for
+media, of the form `https://host/path/blob:https:/host/<uuid>`, which 404. Every media surface
+renders from that blob, so the media library grid, the image widget previews, and images in the
+body all come up empty. Tracked as
+[decap-cms#7639](https://github.com/decaporg/decap-cms/issues/7639).
+
+The pin is why the body is the `markdown` widget rather than `richtext`, which arrived in 3.12.0.
+
 Decap uses the proxy only when the editor page is served from localhost. Loaded from any other
 host it falls back to the `backend` block, which is the GitHub API and needs an OAuth client this
 repo does not configure. If the editor asks you to log in with GitHub, `decap-server` is not
@@ -39,7 +47,7 @@ when `jekyll serve` is run with `--drafts` and are skipped by the production bui
 Fields are title, subtitle, author, date, last-updated, tags, thumbnail-img, cover-img, share-img,
 and the body. Drafts have the same set minus last-updated and share-img.
 
-The body uses the `richtext` widget: a formatting toolbar, drag-and-drop images, and a raw
+The body uses the `markdown` widget: a formatting toolbar, drag-and-drop images, and a raw
 Markdown view behind the mode toggle. It writes plain Markdown either way. Images dropped into a
 post are written to `assets/img/uploads/` and referenced as `/assets/img/uploads/<name>`.
 
