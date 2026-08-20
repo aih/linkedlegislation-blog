@@ -29,7 +29,7 @@ This post will cover the principles I followed in creating this site. Let me kno
 
 Law is highly structured (titles, chapters, sections, subsections, paragraphs, clauses), has internal and external references (the original hyperlink), and consists of plain text. Reading the law requires no images, SVG, streaming, polling or any of the complications that have accrued over years to transform web browsers into powerful engines for digital applications. The text includes definitions and indices, and responsive -- it displays in neat columns and rows on a tablet.
 
-It has been a deep and longstanding frustration for me that this natural structure has not been reflected in the official publications of law. We've come a long way from the display of single, large pdfs for some law (c.f. the U.S. statutes at large -- another worthy digitization project), and some jurisdictions (shout out to [legislation.gov.uk](legislation.gov.uk)), but for the most part, public law is still stuck in the 1990s. 
+It has been a deep and longstanding frustration for me that this natural structure has not been reflected in the official publications of law. We've come a long way from the display of single, large pdfs for some law (c.f. the U.S. statutes at large -- another worthy digitization project), and some jurisdictions (shout out to [legislation.gov.uk](https://legislation.gov.uk)), but for the most part, public law is still stuck in the 1990s. 
 
 Here, I'll lay out the top principles for effective and reader-friendly web display of the law, and I hope you can see those reflected in the new site:
 
