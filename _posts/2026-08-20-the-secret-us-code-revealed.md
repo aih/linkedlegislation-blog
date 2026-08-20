@@ -21,7 +21,7 @@ tags:
 thumbnail-img: /assets/img/uploads/codeofhammurabi.jpg
 cover-img: /assets/img/uploads/hammurabi-uscode-linkedlegislation-montage-1-.png
 ---
-From the Code of Hammurabi to the United States Code, statutory law is naturally built for web display. And yet until today no web site has done true justice to the law.  Tl;dr, compare for yourself, the official site for the United States Code ([uscode.house.gov](uscode.house.gov)) and my new unofficial reconception and proof of concept at [uscode.linkedlegislation.org](uscode.linkedlegislation.org). The site is open source (MIT license) and it is my hope that the concept, if not the software code itself, will serve as inspiration for the next official version of the Law Revision Counsel's U.S. Code site.
+From the Code of Hammurabi to the United States Code, statutory law is naturally built for web display. And yet until today no web site has done true justice to the law.  Tl;dr, compare for yourself, the official site for the United States Code ([uscode.house.gov](https://uscode.house.gov)) and my new unofficial reconception and proof of concept at [uscode.linkedlegislation.org](https://uscode.linkedlegislation.org). The site is open source (MIT license) and it is my hope that the concept, if not the software code itself, will serve as inspiration for the next official version of the Law Revision Counsel's U.S. Code site.
 
 This post will cover the principles I followed in creating this site. Let me know if you think there are principles I missed or mangled, and whether the new site fulfills or flubs these principles. A subsequent post will discuss **how I built it** (Claude Code) and **how to ensure its accuracy** (textual validation using hashes).
 
