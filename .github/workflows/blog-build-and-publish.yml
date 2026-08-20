@@ -1,4 +1,14 @@
-name: Build Jekyll Blog and Add to Blog Branch
+name: Build Jekyll Blog and Publish
+
+# Builds the site twice from the same commit and ships both copies concurrently:
+#
+#   blog/         baseurl ""                      -> S3 + CloudFront invalidation
+#                                                    https://blog.linkedlegislation.org/
+#   _site_pages/  baseurl /linkedlegislation-blog -> GitHub Pages
+#                                                    https://aih.github.io/linkedlegislation-blog/
+#
+# The Pages copy is deployed from this workflow. The legacy `blog` branch is no
+# longer a publishing source.
 
 on:
   push:
@@ -14,19 +24,23 @@ on:
         required: false
         default: ''
   workflow_dispatch:
+
 env:
   JEKYLL_ENV: production
-jobs:
-    jenkins-build:
-      runs-on: ubuntu-latest
-      concurrency:
-        group: ${{ github.workflow }}-${{ github.ref }}
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pages rejects overlapping deployments, so queue rather than cancel.
+concurrency:
+  group: blog-build-and-publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+    build:
+      runs-on: ubuntu-latest
       steps:
           - uses: actions/checkout@v5
             with:
@@ -43,7 +57,50 @@ jobs:
           - id: jekyll-build
             run: bundle exec jekyll build --trace
 
+          - id: jekyll-build-pages
+            run: bundle exec jekyll build --trace --config _config.yml,_config.pages.yml
+
+          - uses: actions/upload-artifact@v4
+            with:
+              name: site-cloudfront
+              path: blog/
+              retention-days: 1
+
+          - uses: actions/upload-pages-artifact@v3
+            with:
+              path: _site_pages/
+
+    cloudfront:
+      needs: build
+      runs-on: ubuntu-latest
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+        DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+
+      steps:
+          - uses: actions/checkout@v5
+            with:
+              ref: ${{ inputs.ref }}
+
+          - uses: actions/download-artifact@v4
+            with:
+              name: site-cloudfront
+              path: blog
+
           - id: make-script-executable 
             run: chmod +x "${GITHUB_WORKSPACE}/.github/workflows/blog-publish.sh" # make file runnable, might not be necessary
           - id: blog-publish 
             run: "${GITHUB_WORKSPACE}/.github/workflows/blog-publish.sh './blog' ${{ secrets.AWS_BUCKET }} 'blog' '/*' false"
+
+    pages:
+      needs: build
+      runs-on: ubuntu-latest
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
+
+      steps:
+          - id: deployment
+            uses: actions/deploy-pages@v4

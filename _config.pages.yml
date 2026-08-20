@@ -1,0 +1,13 @@
+# Overlay for the GitHub Pages mirror at https://aih.github.io/linkedlegislation-blog/
+#
+# Merged after _config.yml, so these keys win:
+#   bundle exec jekyll build --config _config.yml,_config.pages.yml
+#
+# The CloudFront build keeps baseurl "" and destination blog/ from _config.yml.
+
+url: https://aih.github.io
+baseurl: /linkedlegislation-blog
+destination: _site_pages/
+
+# The mirror carries the same posts as blog.linkedlegislation.org.
+noindex: true
