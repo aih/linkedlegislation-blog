@@ -1,6 +1,6 @@
 # Blog for LinkedLegislation.com
 
-This is the content for blog.linkedlegislation.org. This was originally a Blogger (Google) blog, and I've migrated it to Jekyll hosted on AWS CloudFront. The blog can be edited directly in the `_drafts` folder, and then moved to the `_posts` folder when it's ready to be published. It may also be edited using prose.io, a web-based editor that supports markdown. 
+This is the content for blog.linkedlegislation.org. This was originally a Blogger (Google) site, and I've migrated it to Jekyll hosted on AWS CloudFront. The blog can be edited directly in the `_drafts` folder, and then moved to the `_posts` folder when it's ready to be published. It may also be edited using prose.io, a web-based editor that supports markdown. 
 
 The blog is built using the [Beautiful Jekyll](https://beautifuljekyll.com/) theme. Details of how to add content and customize the theme can be found in the [README](https://github.com/daattali/beautiful-jekyll/blob/master/README.md) for that project.
 
@@ -8,7 +8,7 @@ The blog is built using the [Beautiful Jekyll](https://beautifuljekyll.com/) the
 
 As a [Jekyll site](https://jekyllrb.com/docs/usage/), this blog can be run locally for development and testing. Follow [the instructions](https://jekyllrb.com/docs/) for installing requirements and serving locally. In brief:
 
-1. Install Ruby 3.4, the version CI builds with (`brew install ruby@3.4` on
+1. Install Ruby 3.4, used by the CI (`brew install ruby@3.4` on
    Mac, or see [this guide](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-ma)).
 2. Install Bundler: `gem install bundler`
 3. Within this directory, run `bundle install` to install dependencies.
@@ -17,14 +17,12 @@ As a [Jekyll site](https://jekyllrb.com/docs/usage/), this blog can be run local
 5. Browse on `http://localhost:4000`
 
 The site builds with Jekyll 4 and is deployed to S3/CloudFront. It does not use
-the `github-pages` gem, which exists to pin gems to the versions GitHub Pages
-runs and is not relevant to this deployment.
+the `github-pages` gem.
 
 ## Development and automatic build with GH Actions
 
 This blog is automatically built and deployed to AWS CloudFront using GitHub Actions. The workflow is defined in `.github/workflows/blog-build-and-publish.yml` which in turn calls `.github/workflows/blog-publish.sh`.
 The workflow is triggered on any push to the `main` branch. It builds the site, uploads files to s3 and then invalidates the CloudFront deployment.
-Updating Jan 13, 2026
 
 ## About Me page
 
@@ -55,21 +53,20 @@ schedule still keeps the mirror current.
 The blog has published under three domains: blog.tabulaw.com, then
 blog.linkedlegislation.com, now blog.linkedlegislation.org. Posts migrated from
 Blogger linked to each other through the old domains and old Blogger paths
-(`/YYYY/MM/slug.html`). Swapping the domain alone leaves the path broken, so
-those links 404 on whichever domain they name.
+(`/YYYY/MM/slug.html`). 
 
-`scripts/fix_self_links.py` repoints them at root-relative permalinks, which
-survive the next domain change. It maps each Blogger path to the post's current
+`scripts/fix_self_links.py` repairs these links with root-relative permalinks, which
+will survive the next domain change. It maps each Blogger path to the post's current
 permalink, taking the date from the post's `date` front matter converted to
 `site.timezone` — a post filed late in the day at a western offset publishes on
-the following date, so the filename date is not always the permalink date.
+the following date, so the filename date will not always match the permalink date.
 
 `scripts/fix_dead_uscode_links.py` repoints U.S. Code citations that pointed at
 the old Linked Legislation app to the same sections on uscode.house.gov.
 
 Both take `--check` to report without writing (exit 2 if anything needs a fix).
 
-Two categories are left alone on purpose:
+Two categories are not handled:
 
 - `blogger_orig_url` front matter records where a post lived on Blogger.
 - Prose that names an old domain, such as the 2014 post announcing the name
@@ -78,6 +75,5 @@ Two categories are left alone on purpose:
 `scripts/archive_tabulaw_links.py` turns links to the retired Tabulaw sites
 (`calaw.tabulaw.com`, `www.tabulaw.com`, `tabulaw.com`, `pdf2html.tabulaw.com`,
 `rasa.tabulaw.com`) into plain text. They fail DNS and nothing replaced them, so
-each anchor is unwrapped to its own text followed by the host and a marker:
-`here [pdf2html.tabulaw.com - archived]`. Where the link text is already the
-host, the host is not repeated: `calaw.tabulaw.com [archived]`.
+each anchor was unwrapped to its own text followed by the host and a marker:
+`here [pdf2html.tabulaw.com - archived]`.
