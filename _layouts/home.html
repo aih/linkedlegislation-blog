@@ -96,10 +96,20 @@ layout: page
     <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer Posts</a>
   </li>
   {% endif %}
+  <li class="page-item page-count">
+    <span class="page-link">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  </li>
   {% if paginator.next_page %}
   <li class="page-item next">
     <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Older Posts &rarr;</a>
   </li>
   {% endif %}
 </ul>
+
+<nav class="feed-browse" aria-label="Browse the blog">
+  Jump to a post:
+  <a href="{{ '/byyear/' | relative_url }}">archive by date</a>
+  <span class="feed-browse-sep">&middot;</span>
+  <a href="{{ '/tags/' | relative_url }}">browse by tag</a>
+</nav>
 {% endif %}

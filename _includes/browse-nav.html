@@ -1,0 +1,13 @@
+{% comment %}
+Site-wide links to the rest of the blog. Rendered in the footer, so it is on
+every page.
+{% endcomment %}
+
+<nav class="browse-nav" aria-label="Browse the blog">
+  <a href="{{ '/' | relative_url }}">All posts</a>
+  <a href="{{ '/byyear/' | relative_url }}">Archive by date</a>
+  <a href="{{ '/tags/' | relative_url }}">Browse by tag</a>
+  {% if site.post_search %}
+    <a href="#" class="nav-search-link">Search</a>
+  {% endif %}
+</nav>
