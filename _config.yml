@@ -236,6 +236,10 @@ highlighter: rouge
 permalink: /:year-:month-:day-:title/
 paginate: 5
 
+# Trailing slash: the S3 origin serves the site under a /blog key prefix, so its
+# add-a-slash redirect on "/page2" rewrites the visitor to /blog/page2/, which 404s.
+paginate_path: "/page:num/"
+
 kramdown:
   input: GFM
 
