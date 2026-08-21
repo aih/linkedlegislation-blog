@@ -49,9 +49,11 @@ The workflow is triggered on any push to the `main` branch. It builds the site, 
 https://github.com/aih/aih.github.io.
 
 The script fetches the source page, rewrites its relative asset paths to
-absolute `aih.github.io` URLs, adds a canonical link back to the source, and
-adds a Blog entry to the mirrored page's nav. The output has no YAML front
-matter, so Jekyll copies it verbatim and never runs Liquid over the markup.
+absolute `aih.github.io` URLs, and adds a canonical link back to the source.
+The Blog nav entry comes from the source page, so the mirror does not add one;
+the script warns if the fetched page's nav has no link back to the blog. The
+output has no YAML front matter, so Jekyll copies it verbatim and never runs
+Liquid over the markup.
 
 Run `python3 scripts/sync_aboutme.py` to refresh, or `--check` to report drift
 (exit 2) without writing.

@@ -3,8 +3,9 @@
 
 Fetches the source page, rewrites its relative asset references to absolute
 aih.github.io URLs, swaps the hero portrait for this blog's resized copy, marks
-the remaining images lazy, adds a canonical link and a "Blog" nav entry, and
+the remaining images lazy, adds a canonical link, and
 writes the result to aboutme/index.html.
+
 
 aboutme/index.html carries no YAML front matter, so Jekyll copies it verbatim
 as a static file and never runs Liquid over the mirrored markup.
@@ -105,30 +106,11 @@ def add_canonical(html):
     return html
 
 
-def add_blog_link(html):
-    """Give the mirrored page a way back into the blog it is served from."""
-    desktop = f'<li><a href="{BLOG_URL}">Blog</a></li>'
-    html, n = re.subn(
-        r'(<ul class="nav-links">)(.*?)(</ul>)',
-        lambda m: m.group(1) + m.group(2) + desktop + m.group(3),
-        html,
-        count=1,
-        flags=re.S,
-    )
-    if not n:
-        print("warning: nav-links list not found, skipping desktop Blog link")
-
-    mobile = f'<a href="{BLOG_URL}">Blog</a>\n      '
-    html, n = re.subn(
-        r'(<div class="mobile-menu"[^>]*>.*?)(<a href="mailto:)',
-        lambda m: m.group(1) + mobile + m.group(2),
-        html,
-        count=1,
-        flags=re.S,
-    )
-    if not n:
-        print("warning: mobile menu not found, skipping mobile Blog link")
-    return html
+def check_blog_link(html):
+    """Report a source page that has lost its way back into the blog."""
+    nav = re.search(r"<nav\b.*?</nav>", html, flags=re.S)
+    if not nav or BLOG_URL.rstrip("/") not in nav.group(0):
+        print(f"warning: no {BLOG_URL} link in the source page nav")
 
 
 def build(html):
@@ -136,7 +118,7 @@ def build(html):
     html = localize_hero(html)
     html = defer_offscreen_images(html)
     html = add_canonical(html)
-    html = add_blog_link(html)
+    check_blog_link(html)
     return re.sub(r"(<!DOCTYPE html>\s*)", r"\1" + BANNER, html, count=1, flags=re.I)
 
 
