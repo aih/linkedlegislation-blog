@@ -1,0 +1,58 @@
+{% comment %}
+Posts related to the current one, by shared tag, newest first. Any remaining
+slots are filled with the most recent posts. The previous and next posts are
+skipped here because the prev/next cards already link them.
+{% endcomment %}
+{%- assign date_format = site.date_format | default: "%B %-d, %Y" -%}
+{%- assign max_related = include.limit | default: 5 -%}
+{%- assign shown = 0 -%}
+{%- capture seen %}|{{ page.url }}|{{ page.previous.url }}|{{ page.next.url }}|{% endcapture -%}
+
+{%- capture related_items -%}
+  {%- for tag in page.tags -%}
+    {%- if shown >= max_related %}{% break %}{% endif -%}
+    {%- for post in site.tags[tag] -%}
+      {%- if shown >= max_related %}{% break %}{% endif -%}
+      {%- capture key %}|{{ post.url }}|{% endcapture -%}
+      {%- unless seen contains key -%}
+        {%- capture seen %}{{ seen }}{{ key }}{% endcapture -%}
+        {%- assign shown = shown | plus: 1 -%}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a>
+          <span class="more-posts-date">{{ post.date | date: date_format }}</span>
+        </li>
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign related_count = shown -%}
+
+{%- capture recent_items -%}
+  {%- for post in site.posts -%}
+    {%- if shown >= max_related %}{% break %}{% endif -%}
+    {%- capture key %}|{{ post.url }}|{% endcapture -%}
+    {%- unless seen contains key -%}
+      {%- capture seen %}{{ seen }}{{ key }}{% endcapture -%}
+      {%- assign shown = shown | plus: 1 -%}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a>
+        <span class="more-posts-date">{{ post.date | date: date_format }}</span>
+      </li>
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+<section class="more-posts" aria-labelledby="more-posts-heading">
+  <h2 id="more-posts-heading">{% if related_count > 0 %}Related posts{% else %}More posts{% endif %}</h2>
+  <ul class="more-posts-list">
+    {{- related_items -}}
+    {{- recent_items -}}
+  </ul>
+  <p class="more-posts-browse">
+    <a href="{{ '/' | relative_url }}">All posts</a>
+    <span class="more-posts-sep">&middot;</span>
+    <a href="{{ '/byyear/' | relative_url }}">Archive by date</a>
+    <span class="more-posts-sep">&middot;</span>
+    <a href="{{ '/tags/' | relative_url }}">Browse by tag</a>
+  </p>
+</section>

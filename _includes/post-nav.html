@@ -1,0 +1,33 @@
+{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+
+<nav class="post-nav" aria-label="Post navigation">
+  {% if page.previous.url %}
+    <a class="post-nav-item post-nav-prev" href="{{ page.previous.url | relative_url }}" rel="prev">
+      <span class="post-nav-label">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Previous post
+      </span>
+      <span class="post-nav-title">{{ page.previous.title | strip_html }}</span>
+      {% if page.previous.subtitle %}
+        <span class="post-nav-subtitle">{{ page.previous.subtitle | strip_html }}</span>
+      {% endif %}
+      <span class="post-nav-date">{{ page.previous.date | date: date_format }}</span>
+    </a>
+  {% else %}
+    <span class="post-nav-item post-nav-empty" aria-hidden="true"></span>
+  {% endif %}
+
+  {% if page.next.url %}
+    <a class="post-nav-item post-nav-next" href="{{ page.next.url | relative_url }}" rel="next">
+      <span class="post-nav-label">
+        Next post&nbsp;<i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </span>
+      <span class="post-nav-title">{{ page.next.title | strip_html }}</span>
+      {% if page.next.subtitle %}
+        <span class="post-nav-subtitle">{{ page.next.subtitle | strip_html }}</span>
+      {% endif %}
+      <span class="post-nav-date">{{ page.next.date | date: date_format }}</span>
+    </a>
+  {% else %}
+    <span class="post-nav-item post-nav-empty" aria-hidden="true"></span>
+  {% endif %}
+</nav>

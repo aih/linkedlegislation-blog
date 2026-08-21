@@ -117,7 +117,7 @@ var BeautifulJekyllJS = {
       return;
     }
 
-    $("#nav-search-link").click(function(e) {
+    $(".nav-search-link").click(function(e) {
       e.preventDefault();
       $("#beautifuljekyll-search-overlay").show();
       $("#nav-search-input").focus().select();
