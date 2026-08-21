@@ -6,6 +6,22 @@ It can also be edited in a browser with [Decap CMS](https://decapcms.org/), whic
 
 The blog is built using the [Beautiful Jekyll](https://beautifuljekyll.com/) theme. Details of how to add content and customize the theme can be found in the [README](https://github.com/daattali/beautiful-jekyll/blob/master/README.md) for that project.
 
+## Styling
+
+The blog uses the palette and type of https://aih.github.io/: a cream page
+(`#F7F4EE`), white cards, a royal blue accent (`#2563EB`), Lora for headings and
+DM Sans for everything else. The base colours are set in `_config.yml` under
+`--- Colours ---`, which Beautiful Jekyll compiles into
+`assets/css/beautifuljekyll.css`; the component styling (navbar, feed cards,
+tag pills, post navigation, footer) lives in `assets/css/custom-styles.css`.
+
+The navbar avatar is `assets/img/ari-avatar.jpg`, a 400x400 crop of
+`AriProfile1-crop.png`. Keep it small: the navbar shows it at 50-100 px, and the
+full-size original is 2 MB. Images uploaded to S3 are served with a 30-day
+`Cache-Control`, so replacing one under its existing name leaves the old copy in
+browsers that already hold it; the CloudFront invalidation on deploy clears only
+the edge cache. Give a changed image a new filename.
+
 ## Installation and Local Development
 
 As a [Jekyll site](https://jekyllrb.com/docs/usage/), this blog can be run locally for development and testing. Follow [the instructions](https://jekyllrb.com/docs/) for installing requirements and serving locally. In brief:

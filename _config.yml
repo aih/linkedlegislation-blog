@@ -43,7 +43,7 @@ navbar-links:
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
 #avatar: "/assets/img/avatar-icon.png"
-avatar: "/assets/img/AriProfile1-crop.png"
+avatar: "/assets/img/ari-avatar.jpg"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
@@ -116,17 +116,19 @@ keywords: "law, legislation, technology, xml, document comparison, diff, git, Gi
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-page-col: "#FFFFFF"
-text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
+# These match the palette of https://aih.github.io/ (cream page, royal blue accent).
+navbar-col: "#F7F4EE"
+navbar-text-col: "#2E2E2E"
+navbar-border-col: "rgba(30, 64, 175, 0.12)"
+navbar-children-col: "#FFFFFF"
+page-col: "#F7F4EE"
+text-col: "#2E2E2E"
+link-col: "#2563EB"
+hover-col: "#1E40AF"
+footer-col: "#EAE5DC"
+footer-text-col: "#555555"
+footer-link-col: "#555555"
+footer-hover-col: "#2563EB"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
@@ -136,7 +138,7 @@ footer-hover-col: "#0085A1"
 #page-img: "/assets/img/bgimage.png"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
-#mobile-theme-col: "#0085A1"
+mobile-theme-col: "#F7F4EE"
 
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
 site-css:

@@ -48,7 +48,20 @@ if [ "$empty_bucket" == "true" ]; then
   aws s3 rm s3://$bucket_name/$bucket_dir --recursive
 fi
 
-aws s3 cp $build_path s3://$bucket_name/$bucket_dir --recursive
+dest="s3://$bucket_name/$bucket_dir"
+dest="${dest%/}"
+
+# Pages and stylesheets change with every deploy and are covered by the
+# CloudFront invalidation below, so browsers revalidate them often. Images keep
+# their bytes across deploys, so they are cached for 30 days.
+aws s3 cp $build_path "$dest" --recursive \
+  --exclude "*assets/img/*" \
+  --cache-control "public, max-age=600"
+
+if [ -d "$build_path/assets/img" ]; then
+  aws s3 cp $build_path/assets/img "$dest/assets/img" --recursive \
+    --cache-control "public, max-age=2592000"
+fi
 
 if [ -z "$DISTRIBUTION_ID" ]; then
   echo "Skipping cloudfront invalidation..."
