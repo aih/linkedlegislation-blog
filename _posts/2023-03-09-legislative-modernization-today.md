@@ -4,7 +4,6 @@ title: Legislative Modernization
 subtitle: Where we are today
 author: Ari Hershowitz
 date: 2023-03-09T12:00:00.000-00:00
-cover-img: /assets/img/uploads/hammurabi-uscode-linkedlegislation-montage-1-.png
 author_avatar: /assets/img/authors/ari.png
 tags:
   - Congress
