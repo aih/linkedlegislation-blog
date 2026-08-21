@@ -80,7 +80,7 @@ layout: page
     <div class="blog-tags">
       <span>Tags:</span>
       {% for tag in post.tags %}
-      <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
+      <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify: 'pretty' }}">{{- tag -}}</a>
       {% endfor %}
     </div>
     {% endif %}
