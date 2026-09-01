@@ -20,8 +20,35 @@ tags:
   - uscode.house.gov
   - LII
   - Cornell Legal Information Institute
-thumbnail-img: /assets/img/uploads/sample.jpg
-cover-img: /assets/img/uploads/sample.png
+thumbnail-img: /assets/img/uploads/tower-of-babel-bruegel.jpg
+cover-img: /assets/img/uploads/punchcard-uscode-blend.jpg
+image-credits:
+  - role: Thumbnail
+    title: The Tower of Babel
+    creator: Pieter Bruegel the Elder
+    year: 1563
+    source: "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg"
+    source-name: Wikimedia Commons
+    license: Public domain
+    license-url: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+  - role: Cover
+    note: A multiply blend of the two images below.
+    ai-role: Composited
+    ai-model: Claude Opus 5 in Claude Code
+    ai-version: claude-opus-5, Claude Code 2.1.257
+    ai-date: 2026-09-01
+  - role: Cover source
+    title: IBM 80-column punch card
+    source: "https://commons.wikimedia.org/wiki/File:Blue-punch-card-front-horiz.png"
+    source-name: Wikimedia Commons
+    license: Public domain
+    license-url: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+  - role: Cover source
+    title: "United States Code § 285c, Law Revision Counsel"
+    creator: Ari Hershowitz
+    source: "https://uscode.linkedlegislation.org/app/us/usc/t2/s285c"
+    source-name: uscode.linkedlegislation.org
+    note: Screenshot of the author's own site.
 ---
 
 My [previous post](https://blog.linkedlegislation.org/2026-08-20-the-secret-us-code-revealed/) introduced a proof-of-concept modern display for the United States Code, and five design principles that I propose for the official web publication of laws and regulations: hierarchical navigation, keyword and citation search, section-level display, history and text comparison (version management), copy and paste.\

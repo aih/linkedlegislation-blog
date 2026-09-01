@@ -47,6 +47,29 @@ collections:
       - { name: thumbnail-img, label: Thumbnail image, widget: image, required: false }
       - { name: cover-img, label: Cover image, widget: image, required: false }
       - { name: share-img, label: Social share image, widget: image, required: false }
+      # One entry per image. `role` says which image it is (Thumbnail, Cover,
+      # a caption); the `ai-*` fields identify an image an AI model made.
+      - name: image-credits
+        label: Image credits
+        label_singular: Image credit
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.role}}: {{fields.title}}{{fields.ai-model}}'
+        fields:
+          - { name: role, label: Which image, widget: string, required: false, hint: 'Thumbnail, Cover, Cover source, In body' }
+          - { name: title, label: Title, widget: string, required: false }
+          - { name: creator, label: Creator, widget: string, required: false }
+          - { name: year, label: Year, widget: string, required: false }
+          - { name: source, label: Source URL, widget: string, required: false }
+          - { name: source-name, label: Source name, widget: string, required: false, hint: 'Wikimedia Commons, the site name' }
+          - { name: license, label: License, widget: string, required: false, hint: 'Public domain, CC BY 4.0' }
+          - { name: license-url, label: License URL, widget: string, required: false }
+          - { name: note, label: Note, widget: text, required: false }
+          - { name: ai-model, label: 'AI model', widget: string, required: false, hint: 'Fill in for any AI-made image. Leave blank otherwise.' }
+          - { name: ai-version, label: 'AI version', widget: string, required: false }
+          - { name: ai-date, label: 'AI date', widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, default: '', required: false }
+          - { name: ai-role, label: 'AI did what', widget: string, required: false, hint: 'Generated, Composited, Upscaled. Defaults to Generated.' }
       - { name: body, label: Body, widget: markdown, modes: [rich_text, raw] }
 
   - name: drafts
@@ -67,4 +90,27 @@ collections:
       - { name: tags, label: Tags, widget: list, required: false }
       - { name: thumbnail-img, label: Thumbnail image, widget: image, required: false }
       - { name: cover-img, label: Cover image, widget: image, required: false }
+      # One entry per image. `role` says which image it is (Thumbnail, Cover,
+      # a caption); the `ai-*` fields identify an image an AI model made.
+      - name: image-credits
+        label: Image credits
+        label_singular: Image credit
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.role}}: {{fields.title}}{{fields.ai-model}}'
+        fields:
+          - { name: role, label: Which image, widget: string, required: false, hint: 'Thumbnail, Cover, Cover source, In body' }
+          - { name: title, label: Title, widget: string, required: false }
+          - { name: creator, label: Creator, widget: string, required: false }
+          - { name: year, label: Year, widget: string, required: false }
+          - { name: source, label: Source URL, widget: string, required: false }
+          - { name: source-name, label: Source name, widget: string, required: false, hint: 'Wikimedia Commons, the site name' }
+          - { name: license, label: License, widget: string, required: false, hint: 'Public domain, CC BY 4.0' }
+          - { name: license-url, label: License URL, widget: string, required: false }
+          - { name: note, label: Note, widget: text, required: false }
+          - { name: ai-model, label: 'AI model', widget: string, required: false, hint: 'Fill in for any AI-made image. Leave blank otherwise.' }
+          - { name: ai-version, label: 'AI version', widget: string, required: false }
+          - { name: ai-date, label: 'AI date', widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, default: '', required: false }
+          - { name: ai-role, label: 'AI did what', widget: string, required: false, hint: 'Generated, Composited, Upscaled. Defaults to Generated.' }
       - { name: body, label: Body, widget: markdown, modes: [rich_text, raw] }

@@ -718,3 +718,81 @@ footer .footer-links a:focus .fa-stack .fa-circle {
 div.aboutmecontainer>ul>li {
 	margin-top: 20px;
 }
+
+/* --- Image credits --- */
+
+.image-credits {
+	margin-top: 2.5rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--border);
+	font-family: var(--sans);
+	font-size: 0.82rem;
+	line-height: 1.55;
+	color: var(--ink3);
+}
+
+.image-credits h2 {
+	font-family: var(--sans);
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: var(--ink3);
+	margin: 0 0 0.75rem;
+}
+
+.image-credits ul {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+.image-credits li {
+	margin-bottom: 0.6rem;
+}
+
+.image-credits li:last-child {
+	margin-bottom: 0;
+}
+
+.image-credits a {
+	color: var(--accent);
+}
+
+.image-credit-role {
+	display: inline-block;
+	min-width: 7.25rem;
+	font-weight: 600;
+	color: var(--ink2);
+}
+
+@media all and (max-width: 575px) {
+	.image-credit-role {
+		display: block;
+		min-width: 0;
+	}
+}
+
+.image-credit-stacked {
+	display: block;
+}
+
+.image-credit-ai-tag {
+	display: inline-block;
+	background: var(--accent-light);
+	border: 1px solid var(--border);
+	border-radius: 100px;
+	padding: 0 0.5rem;
+	margin-right: 0.3rem;
+	font-size: 0.65rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	color: var(--accent-dark);
+	vertical-align: 1px;
+}
+
+@media all and (min-width: 576px) {
+	.image-credit-stacked {
+		margin-left: 7.25rem;
+	}
+}
