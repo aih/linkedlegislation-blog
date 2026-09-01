@@ -1,0 +1,93 @@
+{% comment %}
+Renders the `image-credits` front matter of a post or page. Each entry describes
+one image; `ai-model` marks an image an AI model made, and prints the version
+and date alongside it. Nothing is emitted when the page carries no credits.
+
+Every field is normalised to a stripped string first. Liquid counts the empty
+string as truthy, and Decap writes a cleared optional field as `''` rather than
+dropping the key, so a bare truthiness test on a field would emit a stray comma.
+
+Whitespace matters: a stripping tag (`-%}`) sits before every comma and period
+so none is preceded by a space, and a plain tag (`%}`) sits wherever a
+separating space belongs.
+{% endcomment %}
+
+{%- if page.image-credits.size > 0 -%}
+{%- assign credit_date_format = site.date_format | default: "%B %-d, %Y" -%}
+<section class="image-credits">
+  <h2>Image credits</h2>
+  <ul>
+    {%- for credit in page.image-credits %}
+    {%- assign c_role = credit.role | default: "" | strip -%}
+    {%- assign c_title = credit.title | default: "" | strip -%}
+    {%- assign c_creator = credit.creator | default: "" | strip -%}
+    {%- assign c_year = credit.year | default: "" | append: "" | strip -%}
+    {%- assign c_source = credit.source | default: "" | strip -%}
+    {%- assign c_source_name = credit.source-name | default: "" | strip -%}
+    {%- assign c_license = credit.license | default: "" | strip -%}
+    {%- assign c_license_url = credit.license-url | default: "" | strip -%}
+    {%- assign c_note = credit.note | default: "" | strip -%}
+    {%- assign c_ai_role = credit.ai-role | default: "" | strip -%}
+    {%- assign c_ai_model = credit.ai-model | default: "" | strip -%}
+    {%- assign c_ai_version = credit.ai-version | default: "" | strip -%}
+    {%- assign c_ai_date = credit.ai-date | default: "" | append: "" | strip -%}
+    {%- if c_ai_role == "" %}{% assign c_ai_role = "Generated" %}{% endif -%}
+    {%- assign has_text = false -%}
+    {%- if c_title != "" or c_creator != "" or c_year != "" or c_source != "" or c_license != "" %}{% assign has_text = true %}{% endif -%}
+    <li>
+      {%- if c_role != "" %}<span class="image-credit-role">{{ c_role }}</span> {% endif -%}
+      <span class="image-credit-body">
+        {%- if c_title != "" -%}
+          {%- if c_source != "" -%}
+            <a href="{{ c_source }}"><em>{{ c_title }}</em></a>
+          {%- else -%}
+            <em>{{ c_title }}</em>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if c_creator != "" -%}
+          {%- if c_title != "" -%}, {% endif -%}
+          {{- c_creator -}}
+        {%- endif -%}
+
+        {%- if c_year != "" -%}
+          {%- if c_title != "" or c_creator != "" -%}, {% endif -%}
+          {{- c_year -}}
+        {%- endif -%}
+
+        {%- if c_title != "" or c_creator != "" or c_year != "" -%}. {% endif -%}
+
+        {%- if c_source_name != "" -%}
+          {%- if c_source != "" -%}
+            Via <a href="{{ c_source }}">{{ c_source_name }}</a>.
+          {%- else -%}
+            Via {{ c_source_name }}.
+          {%- endif -%}
+        {%- elsif c_source != "" and c_title == "" -%}
+          <a href="{{ c_source }}">{{ c_source }}</a>.
+        {%- endif %}
+        {% if c_license != "" -%}
+          {%- if c_license_url != "" -%}
+            <a href="{{ c_license_url }}">{{ c_license }}</a>.
+          {%- else -%}
+            {{ c_license }}.
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if c_note != "" %}
+        <span class="image-credit-note{% if has_text %} image-credit-stacked{% endif %}">{{ c_note }}</span>
+        {%- endif -%}
+
+        {%- if c_ai_model != "" %}
+        <span class="image-credit-ai{% if has_text %} image-credit-stacked{% endif %}"><span class="image-credit-ai-tag">AI</span>
+          {{ c_ai_role }} with {{ c_ai_model -}}
+          {%- if c_ai_version != "" -%}, version {{ c_ai_version }}{% endif -%}
+          {%- if c_ai_date != "" -%}, {{ c_ai_date | date: credit_date_format }}{% endif -%}.
+        </span>
+        {%- endif %}
+      </span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif -%}

@@ -45,7 +45,7 @@ imported from Blogger are not listed.
 when `jekyll serve` is run with `--drafts` and are skipped by the production build.
 
 Fields are title, subtitle, author, date, last-updated, tags, thumbnail-img, cover-img, share-img,
-and the body. Drafts have the same set minus last-updated and share-img.
+image-credits, and the body. Drafts have the same set minus last-updated and share-img.
 
 The body uses the `markdown` widget: a formatting toolbar, drag-and-drop images, and a raw
 Markdown view behind the mode toggle. It writes plain Markdown either way. Images dropped into a
@@ -79,6 +79,58 @@ to S3 and invalidates the CloudFront distribution.
 The build uses `_config.yml` alone. `_admin/` starts with an underscore, so Jekyll skips it unless
 `_config.admin.yml` adds it back with `include:`. The editor is never published to
 blog.linkedlegislation.org. `_drafts` is likewise excluded from a build without `--drafts`.
+
+## Image credits
+
+Every image the site shows should carry a credit. Credits live in the `image-credits` front matter
+of the post or page that shows the image, and render as a list under the body, above the tags.
+
+```yaml
+image-credits:
+  - role: Thumbnail
+    title: The Tower of Babel
+    creator: Pieter Bruegel the Elder
+    year: 1563
+    source: "https://commons.wikimedia.org/wiki/File:..."
+    source-name: Wikimedia Commons
+    license: Public domain
+    license-url: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+```
+
+One entry per image. `role` names which image the entry is about — `Thumbnail`, `Cover`, `In body`.
+A composite gets one entry for the finished image and one `Cover source` entry per image that went
+into it. Every field is optional; an entry renders whatever it has.
+
+| Field | Content |
+| --- | --- |
+| `role` | Which image, shown in the left column |
+| `title` | Image or artwork title, italicised, linked to `source` |
+| `creator` | Photographer, painter, or author |
+| `year` | Year of the work |
+| `source` | URL of the page the image came from |
+| `source-name` | Name of that site, rendered as "Via *name*" |
+| `license` | `Public domain`, `CC BY 4.0` |
+| `license-url` | URL of the licence text |
+| `note` | A sentence about the image |
+
+An AI-made image adds the model, its version, and the date it was made:
+
+```yaml
+  - role: Cover
+    ai-model: Claude Opus 5 in Claude Code
+    ai-version: claude-opus-5, Claude Code 2.1.257
+    ai-date: 2026-09-01
+    ai-role: Composited
+```
+
+That renders as an `AI` tag followed by "Composited with Claude Opus 5 in Claude Code, version
+claude-opus-5, Claude Code 2.1.257, September 1, 2026." `ai-role` defaults to `Generated`; set it
+to `Composited`, `Upscaled`, or whatever the model actually did. `ai-model` is what marks an image
+as AI-made — an entry without it renders no tag.
+
+The rendering lives in `_includes/image-credits.html`, pulled in by `_layouts/post.html` and
+`_layouts/page.html`. Styling is under `/* --- Image credits --- */` in
+`assets/css/custom-styles.css`.
 
 ## Blank optional fields
 
