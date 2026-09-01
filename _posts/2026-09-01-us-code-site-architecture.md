@@ -2,7 +2,7 @@
 title: U.S. Code Site Architecture
 subtitle: FastAPI Powering a Modern U.S. Code Website
 author: Ari Hershowitz
-date: 2026-09-01T12:15:00-07:00
+date: 2026-09-01
 tags:
   - API
   - FastAPI
