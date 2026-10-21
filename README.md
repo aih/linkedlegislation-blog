@@ -2,7 +2,7 @@
 
 This is the content for blog.linkedlegislation.org. This was originally a Blogger (Google) site, and I've migrated it to Jekyll hosted on AWS CloudFront. The blog can be edited directly in the `_drafts` folder, and then moved to the `_posts` folder when it's ready to be published.
 
-It can also be edited in a browser with [Decap CMS](https://decapcms.org/), which runs locally against this working copy. See [EDITING.md](EDITING.md) for the setup and the draft-to-published workflow.
+It can also be edited in a browser with [Sveltia CMS](https://sveltiacms.app/), which runs locally against this working copy. See [EDITING.md](EDITING.md) for the setup and the draft-to-published workflow.
 
 The blog is built using the [Beautiful Jekyll](https://beautifuljekyll.com/) theme. Details of how to add content and customize the theme can be found in the [README](https://github.com/daattali/beautiful-jekyll/blob/master/README.md) for that project.
 

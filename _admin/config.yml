@@ -1,17 +1,18 @@
-# Editor configuration, read by Decap CMS. Reload the editor in the browser
+# Editor configuration, read by Sveltia CMS. Reload the editor in the browser
 # after changing this file.
 
+# "Work with Local Repository" reads and writes this working copy directly and
+# never contacts GitHub. The block below is used only for signing in to edit
+# the remote repository, which needs an OAuth client this repo does not
+# configure.
 backend:
   name: github
   repo: aih/linkedlegislation-blog
   branch: main
 
-# Routes reads and writes through `npx decap-server` on port 8081 instead of
-# the GitHub API, so the editor saves into this working copy. Decap uses the
-# proxy only when the page is served from localhost; anywhere else it falls
-# back to the `backend` above, which needs an OAuth client that this repo does
-# not configure.
-local_backend: true
+# Drops a cleared optional field from the front matter instead of writing `''`.
+output:
+  omit_empty_optional_fields: true
 
 # Preview links point at the local Jekyll server.
 site_url: http://localhost:4000
@@ -40,7 +41,7 @@ collections:
       - { name: subtitle, label: Subtitle, widget: string, required: false }
       - { name: author, label: Author, widget: string, default: Ari Hershowitz, required: false }
       # Required so the field can never be saved blank. Jekyll aborts the build
-      # on `date: ''`, and Decap writes an empty string for a cleared field.
+      # on `date: ''`.
       - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ssZ', default: '{{now}}' }
       - { name: last-updated, label: Last updated, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ssZ', default: '', required: false }
       - { name: tags, label: Tags, widget: list, required: false }
@@ -70,7 +71,7 @@ collections:
           - { name: ai-version, label: 'AI version', widget: string, required: false }
           - { name: ai-date, label: 'AI date', widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, default: '', required: false }
           - { name: ai-role, label: 'AI did what', widget: string, required: false, hint: 'Generated, Composited, Upscaled. Defaults to Generated.' }
-      - { name: body, label: Body, widget: markdown, modes: [rich_text, raw] }
+      - { name: body, label: Body, widget: richtext, modes: [rich_text, raw] }
 
   - name: drafts
     label: Drafts
@@ -113,4 +114,4 @@ collections:
           - { name: ai-version, label: 'AI version', widget: string, required: false }
           - { name: ai-date, label: 'AI date', widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, default: '', required: false }
           - { name: ai-role, label: 'AI did what', widget: string, required: false, hint: 'Generated, Composited, Upscaled. Defaults to Generated.' }
-      - { name: body, label: Body, widget: markdown, modes: [rich_text, raw] }
+      - { name: body, label: Body, widget: richtext, modes: [rich_text, raw] }
