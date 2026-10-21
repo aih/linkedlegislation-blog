@@ -19,6 +19,10 @@ From the repository root:
 bundle exec jekyll serve --config _config.yml,_config.admin.yml --drafts
 ```
 
+`./edit.sh` runs the same command and opens <http://localhost:4000/_admin/> in Google Chrome once
+the server answers. If a server is already running, it only opens the editor. `PORT=4001
+./edit.sh` uses another port.
+
 1. Open <http://localhost:4000/_admin/>.
 2. Click **Work with Local Repository**.
 3. Select the repository root, the folder that contains `.git`. The browser asks for read and
