@@ -1,40 +1,35 @@
 # Editing posts in a browser
 
-The site ships with [Decap CMS](https://decapcms.org/), a single-page editor that runs in the
-browser. `_admin/index.html` loads it from a CDN. Saving goes through
-[`decap-server`](https://decapcms.org/docs/decap-proxy/), a small local proxy that writes Markdown
-files into this working copy.
+The site ships with [Sveltia CMS](https://sveltiacms.app/), a single-page editor that runs in the
+browser. `_admin/index.html` loads it from a CDN, pinned to `@sveltia/cms@0.230.1`. Sveltia reads
+and writes this working copy through the browser's File System Access API. There is no proxy
+server.
+
+## Requirements
+
+- A Chromium browser: Chrome, Edge, or Brave. Firefox and Safari do not implement the File System
+  Access API. Brave needs `brave://flags/#file-system-access-api` set to Enabled.
+- The Jekyll gems: `bundle install`.
 
 ## Start it
 
-Two terminals, both from the repository root.
-
-```bash
-npx decap-server
-```
+From the repository root:
 
 ```bash
 bundle exec jekyll serve --config _config.yml,_config.admin.yml --drafts
 ```
 
-Open <http://localhost:4000/_admin/>. Any browser works, including Firefox and Safari.
+1. Open <http://localhost:4000/_admin/>.
+2. Click **Work with Local Repository**.
+3. Select the repository root, the folder that contains `.git`. The browser asks for read and
+   write access; allow it. An error reading "not a repository root directory" means a subfolder was
+   selected.
 
-The proxy listens on port 8081 and serves the repository it was started in. `PORT=8082 npx
-decap-server` moves it; the matching editor setting is `local_backend: {url: ...}` in
-`_admin/config.yml`.
+The browser remembers the folder for the next visit and may ask to confirm access again.
 
-`_admin/index.html` pins `decap-cms@3.8.0`. Releases from 3.8.4 up build malformed blob URLs for
-media, of the form `https://host/path/blob:https:/host/<uuid>`, which 404. Every media surface
-renders from that blob, so the media library grid, the image widget previews, and images in the
-body all come up empty. Tracked as
-[decap-cms#7639](https://github.com/decaporg/decap-cms/issues/7639).
-
-The pin is why the body is the `markdown` widget rather than `richtext`, which arrived in 3.12.0.
-
-Decap uses the proxy only when the editor page is served from localhost. Loaded from any other
-host it falls back to the `backend` block, which is the GitHub API and needs an OAuth client this
-repo does not configure. If the editor asks you to log in with GitHub, `decap-server` is not
-running.
+The `backend` block in `_admin/config.yml` names the GitHub repository. The local workflow does not
+contact GitHub. **Sign In with GitHub** would need an OAuth client, which this repo does not
+configure.
 
 ## What it edits
 
@@ -47,15 +42,19 @@ when `jekyll serve` is run with `--drafts` and are skipped by the production bui
 Fields are title, subtitle, author, date, last-updated, tags, thumbnail-img, cover-img, share-img,
 image-credits, and the body. Drafts have the same set minus last-updated and share-img.
 
-The body uses the `markdown` widget: a formatting toolbar, drag-and-drop images, and a raw
-Markdown view behind the mode toggle. It writes plain Markdown either way. Images dropped into a
-post are written to `assets/img/uploads/` and referenced as `/assets/img/uploads/<name>`.
+The body uses the `richtext` widget: a formatting toolbar, drag-and-drop images, and a raw Markdown
+view behind the mode toggle. It writes plain Markdown either way. A line break inside a paragraph
+(Shift+Enter) is saved as a bare newline, which kramdown's GFM parser renders as `<br>`. Images
+dropped into a post are written to `assets/img/uploads/` and referenced as
+`/assets/img/uploads/<name>`.
 
 Saving writes the file to disk. Jekyll picks the change up on its next scan, so a reload of
-<http://localhost:4000/> shows the post. The editor never runs Git: `git add`, `git commit`, and
-`git push` are yours.
+<http://localhost:4000/> shows the post. By default the editor runs no Git commands: `git add`,
+`git commit`, and `git push` are yours. **Settings > Developer > Commit Changes to Git** makes a
+local commit on each save; it does not push, and it needs `git config --local user.name` and
+`user.email` set, since the browser cannot read the global Git config.
 
-Changing `_admin/config.yml` requires a reload of the editor page.
+Changing `_admin/config.yml`, or pulling new commits, requires a reload of the editor page.
 
 ## Draft to published post
 
@@ -134,12 +133,12 @@ The rendering lives in `_includes/image-credits.html`, pulled in by `_layouts/po
 
 ## Blank optional fields
 
-Decap writes a cleared optional field as an empty string rather than dropping the key. `date: ''`
-aborts the Jekyll build, so `date` is a required field in both collections and carries a
-`{{now}}` default. For the other optional fields an empty string is merely rendered as empty —
-delete the line in the raw Markdown view to remove it.
+`output: omit_empty_optional_fields: true` in `_admin/config.yml` drops a cleared optional field
+from the front matter. `date` is required in both collections and carries a `{{now}}` default;
+Jekyll aborts the build on `date: ''`. Posts saved by the earlier Decap editor may still carry `''`
+for cleared fields, which renders as empty.
 
 ## Adding a field
 
 Add an entry to the `fields:` list of the collection in `_admin/config.yml` with the front matter
-key as `name`. Widget names are at <https://decapcms.org/docs/widgets/>.
+key as `name`. Field types are listed at <https://sveltiacms.app/en/docs/fields>.

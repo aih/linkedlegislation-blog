@@ -4,8 +4,9 @@ one image; `ai-model` marks an image an AI model made, and prints the version
 and date alongside it. Nothing is emitted when the page carries no credits.
 
 Every field is normalised to a stripped string first. Liquid counts the empty
-string as truthy, and Decap writes a cleared optional field as `''` rather than
-dropping the key, so a bare truthiness test on a field would emit a stray comma.
+string as truthy, and files saved by the earlier Decap editor carry `''` for a
+cleared optional field, so a bare truthiness test on a field would emit a stray
+comma.
 
 Whitespace matters: a stripping tag (`-%}`) sits before every comma and period
 so none is preceded by a space, and a plain tag (`%}`) sits wherever a
