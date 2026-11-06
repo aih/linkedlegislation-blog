@@ -11,4 +11,4 @@ tags:
 
 The site described in my LinkedIn post is at **[reintro.linkedlegislation.org](https://reintro.linkedlegislation.org)**.
 
-This is a placeholder: the link in the LinkedIn post leads here instead of to the site itself, so this post points the way.
+This is a placeholder: the link in the LinkedIn post leads here instead of to the site itself, so this post points to the app site.
